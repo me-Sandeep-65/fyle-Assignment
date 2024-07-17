@@ -40,33 +40,17 @@ const dragStop = () => {
 }
 
 const updateDots = () => {
-    console.log("in the function");
+    let currentIndex = Math.round(slider.scrollLeft / firstCardWidth) % (cardPerView);
 
-    let currentIndex = Math.round(slider.scrollLeft / firstCardWidth) % (sliderChildrens.length / 3);
-
-    if (currentIndex === 0) {
-        let changeTo = null;
-        let x_card = Math.round(slider.scrollLeft / firstCardWidth);
-
-        if (x_card > 9) {
-            console.log("index is " + x_card);
-            x_card = x_card % 9;
+    dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.classList.add("red-dot");
+            dot.classList.remove("black-dot");
+        } else {
+            dot.classList.add("black-dot");
+            dot.classList.remove("red-dot");
         }
-
-        changeTo = x_card / 3;
-        console.log(changeTo);
-        console.log("Current index is " + currentIndex);
-
-        dots.forEach((dot, index) => {
-            if (index === changeTo - 1) {
-                dot.classList.add("red-dot");
-                dot.classList.remove("black-dot");
-            } else {
-                dot.classList.add("black-dot");
-                dot.classList.remove("red-dot");
-            }
-        });
-    }
+    });
 }
 
 const infiniteScroll = () => {
@@ -123,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const inputValue = this.value.trim();
             const label = formGroup.querySelector('label');
 
-            console.log('Input value:', inputValue);
-            console.log('Label:', label);
+            // console.log('Input value:', inputValue);
+            // console.log('Label:', label);
 
             if (inputValue !== '') {
                 label.classList.add('filled');
@@ -139,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeFormBtn = document.getElementById('closeFormBtn');
     const formContainer = document.getElementById('contactFormContainer');
     const header = document.getElementById('header');
+    const portfolio = document.getElementById('portfolio');
 
     closeFormBtn.addEventListener('click', function () {
         formContainer.style.opacity = 0;
@@ -149,6 +134,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         header.style.opacity = 1;
         header.style.filter = 'none';
+        portfolio.style.opacity = 1;
+        portfolio.style.filter = 'none';
         document.body.classList.remove('no-scroll');
     });
 
@@ -162,6 +149,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         header.style.opacity = 0.5;
         header.style.filter = 'blur(5px)';
+        portfolio.style.opacity = 0.5;
+        portfolio.style.filter = 'blur(5px)';
         document.body.classList.add('no-scroll');
     });
 
