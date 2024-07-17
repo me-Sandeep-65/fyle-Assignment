@@ -73,6 +73,8 @@
 }
 
 .home-col-2 img {
+    padding: 16px;
+    height: 100%;
     border-radius: 8px;
 }
 
@@ -80,6 +82,10 @@
 
 #showFormBtn {
     cursor: pointer;
+}
+
+#showFormBtn:hover {
+    background-color: #e6005c;
 }
 
 
@@ -100,13 +106,14 @@
     top: 50%;
     left: 50%;
     border-radius: 5px;
+    z-index: 1;
     transform: translate(-50%, -50%) scale(0.8); /* Start with scale 0 */
     border: 1px solid #ccc;
     padding: 31px 32px 25.5px 32px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transition: opacity 0.8s, transform 0.8s; /* Add transition for opacity and transform */
+    transition: opacity 0.5s, transform 0.5s; /* Add transition for opacity and transform */
 }
 
 
@@ -117,6 +124,8 @@
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 700;
+    color: #2d2d2d;
+
 }
 
 .form-group{
@@ -155,11 +164,16 @@
 #contactForm input[type="email"],
 #contactForm input[type="text"] {
     width: 100%;
-    padding: 8px;
+    padding-top: 3px; 
+    padding-bottom: 3px; 
     margin-top: 5px;
     border: 1px solid #ccc;
     border: none;
     border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d2d2d;
 }
 
 .checkbox-container {
@@ -277,15 +291,10 @@
 
 }
 
-.card .img {
-    width: 370px;
-    height: 526px;
-}
-
-
-.card img {
-    width: 57px;
-}
+/* .card img {
+    width: 99%;
+    height: 99%;
+} */
 
 .slider .card h2 {
     font-size: 30px;
@@ -310,7 +319,7 @@
     padding: 0 25px;
     text-align: center;
     font-size: 14px;
-    transition: height 0.5s;
+    transition: height 0.3s;
 }
 
 .layer h3 {
@@ -325,8 +334,6 @@
 .layer p{
     margin-bottom: 50px;
 }
-
-
 
 .layer a {
     color: #ff3147;
@@ -344,6 +351,10 @@
     height: 100%;
 }
 
+.card:hover .img img {
+    height: 0%;
+}
+
 .dot-container {
     display: flex;
     align-items: center;
@@ -357,7 +368,7 @@
     background-color: black; 
     border-radius: 50%; 
     cursor: pointer;
-  }
+}
 .red-dot {
     background-color: red;
     background: url(Assets/icons/red-dot.svg);
@@ -417,23 +428,24 @@
 
 .slider .card {
     scroll-snap-align: start;
-    height: 500px;
+    /* height: 500px; */
     background: #fff;
     flex-direction: column;
     border-radius: 8px;
 }
 
-.slider .card .img {
+/* .slider .card .img {
     height: 526px;
     width: 370px;
-}
+} */
 
 .card .img img {
-    width: 370px;
-    height: 500px;
+    position:relative 0 0;
+    width: 100%;
+    /* height: 500px; */
     border-radius: 8px;
     object-fit: contain;
-
+    transition: height 0.3s;
 }
 
 
@@ -487,10 +499,6 @@
     height: 78.72px;
 }
 
-
-
-
-
 .about-col h3{
     margin-top: 20px;
     margin-bottom: 15px;
@@ -527,11 +535,11 @@
 
 
 .project-col-2{
-    flex-basis: 31%;
+    flex-basis: 32%;
 }
 
 .about-photos{
-    padding: 34px 35px 33px 30px;
+    padding: 36px 35px 36px 30px;
     background: #ff3147;
     border-radius: 1px;
     text-align: left;
@@ -567,6 +575,7 @@
 }
 
 .stats{
+    cursor: default;
     flex-basis: 23%;
     text-align: center;
     padding: 33px 31px;
@@ -605,9 +614,9 @@
     align-items: center; 
     background-image: url(Assets/icons/Quotemarks-left.svg);
     background-repeat: no-repeat;
-    background-size: 6%;
-    background-position-x: 150px;
-    background-position-y: 23px;
+    background-size: 5%;
+    background-position-x: 160px;
+    background-position-y: 26px;
 }
 
 .feedbacks{
