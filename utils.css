@@ -18,5 +18,12 @@
 
 .flex{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
